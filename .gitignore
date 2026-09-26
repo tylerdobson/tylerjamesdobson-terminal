@@ -1,0 +1,19 @@
+# Dependencies and generated output
+/node_modules/
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Local editor files and logs
+.DS_Store
+Thumbs.db
+*.swp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
