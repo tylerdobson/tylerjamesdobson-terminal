@@ -4,6 +4,18 @@ This site exports static files to `out/` and is configured for
 `https://tylerjamesdobson.com`. The deployment workflow runs only when manually
 dispatched on `main`; pushing code or opening a pull request does not deploy it.
 
+## Current hosting
+
+The site launched on September 26, 2026. Squarespace manages the domain and DNS;
+GitHub Pages hosts the static site. The domain is verified on the `tylerdobson`
+account, HTTPS is enforced, and `www` redirects to the apex domain. The
+`github-pages` environment permits deployments from `main` only.
+
+The [first successful deployment](https://github.com/tylerdobson/tylerjamesdobson-terminal/actions/runs/36279638125)
+published commit `ff5c9eaea74bd45ed46e646b0d1492315f110bc8`. The live resume,
+contribution calendar, HTTPS, and redirects were checked after deployment.
+The calendar is refreshed by each manual deployment; it is not a live feed.
+
 ## Before the first deployment
 
 Review the website content and every included download before making the site

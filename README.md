@@ -2,6 +2,8 @@
 
 A static portfolio presented as an interactive command prompt. Visitors can explore Tyler’s education, experience, technical skills, resume, contact links, and GitHub contribution calendar using typed commands or clickable links.
 
+Live site: [tylerjamesdobson.com](https://tylerjamesdobson.com).
+
 Source repository: [tylerdobson/tylerjamesdobson-terminal](https://github.com/tylerdobson/tylerjamesdobson-terminal).
 
 ## Features
