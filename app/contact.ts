@@ -3,8 +3,8 @@ export type Channel = { name: string; value: string; href: string }
 export const CHANNELS: Channel[] = [
   {
     "name": "Email",
-    "value": "tylerjamesdobson1@gmail.com",
-    "href": "mailto:tylerjamesdobson1@gmail.com"
+    "value": "tydobson41@gmail.com",
+    "href": "mailto:tydobson41@gmail.com"
   },
   {
     "name": "LinkedIn",
@@ -15,10 +15,5 @@ export const CHANNELS: Channel[] = [
     "name": "GitHub",
     "value": "@tylerdobson",
     "href": "https://github.com/tylerdobson"
-  },
-  {
-    "name": "X",
-    "value": "@tylerjamesdobs",
-    "href": "https://x.com/tylerjamesdobs"
   }
 ]

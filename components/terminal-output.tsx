@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
-import { DIRECTORY, EXPERIENCE, HELP, PROFILE, PROJECTS, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
+import { CERTIFICATIONS, DIRECTORY, EDUCATION, EXPERIENCE, HELP, LEADERSHIP, PROFILE, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
+import { resumeText } from '@/app/resume'
 
-export type TerminalOutputKind = 'directory' | 'about' | 'projects' | 'project' | 'experience' | 'stack' | 'contact' | 'resume' | 'activity' | 'help' | 'all' | 'text'
+export type TerminalOutputKind = 'directory' | 'about' | 'experience' | 'stack' | 'contact' | 'resume' | 'activity' | 'help' | 'all' | 'text'
 export type TerminalOutputValue = { kind: TerminalOutputKind; value?: string }
 
 type OutputProps = {
@@ -40,36 +41,9 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
         <h2>Tyler James Dobson</h2>
         <p>{PROFILE.headline} / {PROFILE.location}</p>
         <p>{PROFILE.bio}</p>
-        <p>{PROFILE.education}</p>
+        <p>{EDUCATION.degree} at the {EDUCATION.school}. {EDUCATION.graduation}.</p>
         <p>{PROFILE.focus}</p>
       </div>
-    case 'projects':
-      return <>
-        <h2>Directory of {ROOT_PATH}\projects</h2>
-        <ul className="project-list">
-          {PROJECTS.map((project, index) => <li key={project.slug}>
-            <span aria-hidden="true">{String(index + 1).padStart(2, '0')}.</span>
-            <div>
-              <CommandLink command={`projects ${project.slug}`} runCommand={runCommand}>{project.name}</CommandLink>
-              <p>{project.stack}</p>
-            </div>
-          </li>)}
-        </ul>
-        <p>{PROJECTS.length} project(s). Click a project to read more.</p>
-        <p>Usage: projects &lt;name&gt; — e.g. projects nostos</p>
-      </>
-    case 'project': {
-      const project = PROJECTS.find(project => project.slug === output.value)
-      if (!project) return <p>Project not found. Type projects to list available work.</p>
-      return <article className="text-output">
-        <h2>{project.name}</h2>
-        <p>{project.stack}</p>
-        <p>{project.description}</p>
-        {project.href ? <p><a href={project.href} target="_blank" rel="noopener noreferrer">View project on GitHub</a></p> : null}
-        <p><a href={`${email}?subject=${encodeURIComponent(`Tell me about ${project.name}`)}`}>Request project details by email</a></p>
-        <p><CommandLink command="projects" runCommand={runCommand}>Back to projects</CommandLink></p>
-      </article>
-    }
     case 'experience':
       return <section className="text-output">
         <h2>Experience</h2>
@@ -87,7 +61,11 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
     case 'stack':
       return <>
         <h2>Technical stack</h2>
-        <ul className="stack-list">{data.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
+        <p>Languages and tools from my resume and GitHub work.</p>
+        {data.skills.map(group => <section className="skill-group" key={group.name}>
+          <h3>{group.name}</h3>
+          <ul className="stack-list">{group.items.map(skill => <li key={skill}>{skill}</li>)}</ul>
+        </section>)}
       </>
     case 'contact':
       return <>
@@ -100,10 +78,38 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
         </dl>
       </>
     case 'resume':
-      return <div className="text-output">
-        <h2>Resume</h2>
-        <p>My resume is available on request.</p>
-        <p><a href={`${email}?subject=Resume%20request`}>Request my resume by email</a></p>
+      return <div className="all-output resume-output">
+        <header className="text-output">
+          <h2>Resume / Tyler James Dobson</h2>
+          <p>{PROFILE.headline} / {PROFILE.location}</p>
+          <p>{PROFILE.bio}</p>
+          <p><a href={'data:text/plain;charset=utf-8,' + encodeURIComponent(resumeText(data))} download="tyler-james-dobson-resume.txt">Download resume.txt</a></p>
+          <p><a href={email}>Contact me by email</a></p>
+        </header>
+        <section className="text-output">
+          <h3>Education</h3>
+          <p>{EDUCATION.school} / {EDUCATION.location}</p>
+          <p>{EDUCATION.degree}</p>
+          <p>{EDUCATION.graduation}</p>
+          <p>Relevant coursework: {EDUCATION.coursework.join(', ')}.</p>
+        </section>
+        <TerminalOutput output={{ kind: 'experience' }} data={data} runCommand={runCommand} />
+        <TerminalOutput output={{ kind: 'stack' }} data={data} runCommand={runCommand} />
+        <section className="text-output">
+          <h3>Certifications</h3>
+          <ul className="experience-highlights">{CERTIFICATIONS.map(certificate => <li key={certificate.name}>
+            {certificate.name} / {certificate.issuer} / {certificate.date}
+          </li>)}</ul>
+        </section>
+        <section className="text-output">
+          <h3>Leadership</h3>
+          <div className="experience-list">{LEADERSHIP.map(position => <article key={position.organization}>
+            <h4>{position.role}</h4>
+            <p>{position.organization}{position.dates ? ' / ' + position.dates : ''}</p>
+            <p>{position.description}</p>
+          </article>)}</div>
+        </section>
+        <TerminalOutput output={{ kind: 'contact' }} data={data} runCommand={runCommand} />
       </div>
     case 'activity':
       return <section className="contribution-output">
@@ -140,17 +146,7 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
       </>
     case 'all':
       return <div className="all-output">
-        {(['about', 'experience', 'stack', 'contact', 'resume'] as const).map(kind =>
-          <section key={kind}><TerminalOutput output={{ kind }} data={data} runCommand={runCommand} /></section>
-        )}
-        <section>
-          <h2>Projects</h2>
-          {PROJECTS.map(project => <article className="text-output all-project" key={project.slug}>
-            <h3>{project.name}</h3><p>{project.stack}</p><p>{project.description}</p>
-            {project.href ? <p><a href={project.href} target="_blank" rel="noopener noreferrer">View project on GitHub</a></p> : null}
-            <a href={`${email}?subject=${encodeURIComponent(`Tell me about ${project.name}`)}`}>Request project details</a>
-          </article>)}
-        </section>
+        <section><TerminalOutput output={{ kind: 'resume' }} data={data} runCommand={runCommand} /></section>
         <section><TerminalOutput output={{ kind: 'activity' }} data={data} runCommand={runCommand} /></section>
       </div>
     case 'text':

@@ -23,8 +23,8 @@ button { cursor: pointer; }
 a { color: inherit; text-underline-offset: 4px; overflow-wrap: anywhere; }
 button:focus-visible, a:focus-visible { outline: 1px dashed #fff; outline-offset: 3px; }
 ::selection { background: #fff; color: #000; }
-p, h1, h2, h3, ul, dl, dd { margin: 0; }
-h1, h2, h3 { font: inherit; }
+p, h1, h2, h3, h4, ul, dl, dd { margin: 0; }
+h1, h2, h3, h4 { font: inherit; }
 ul { padding: 0; list-style: none; }
 
 .sr-only {
@@ -90,9 +90,8 @@ ul { padding: 0; list-style: none; }
 .directory-list { margin: 24px 0; }
 .directory-row { display: grid; grid-template-columns: 9ch 16ch minmax(0, 1fr); align-items: baseline; }
 .directory-row .command-link { justify-self: start; }
-.project-list { display: grid; gap: 12px; margin: 24px 0; max-width: 86ch; }
-.project-list li { display: grid; grid-template-columns: 4ch 1fr; }
-.project-list .command-link { text-decoration: underline; text-underline-offset: 4px; }
+.skill-group { margin-top: 18px; }
+.skill-group h3, .resume-output h3, .resume-output h4 { text-decoration: underline; text-underline-offset: 4px; }
 .stack-list { display: grid; grid-template-columns: repeat(3, minmax(0, 20ch)); gap: 0 4ch; margin: 12px 0; max-width: 78ch; }
 .contact-list, .help-list { display: grid; gap: 0; margin: 12px 0; }
 .contact-list > div { display: grid; grid-template-columns: 12ch minmax(0, 1fr); }
@@ -104,8 +103,6 @@ ul { padding: 0; list-style: none; }
 .contribution-links { display: flex; flex-wrap: wrap; gap: 1ch 3ch; margin: 12px 0 24px; }
 .plain-output { white-space: pre-wrap; }
 .all-output { display: grid; gap: 24px; }
-.all-project { margin-top: 24px; }
-.all-project h3 { text-decoration: underline; text-underline-offset: 4px; }
 .experience-list { display: grid; gap: 24px; margin-top: 12px; }
 .experience-list h3 { text-decoration: underline; text-underline-offset: 4px; }
 .experience-highlights { display: grid; gap: 6px; margin-top: 12px; }

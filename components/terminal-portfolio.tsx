@@ -1,18 +1,18 @@
 'use client'
 
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
-import { DIRECTORY, PROJECTS, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
+import { DIRECTORY, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
 import TerminalOutput, { CommandLink, type TerminalOutputValue } from './terminal-output'
 
 type Entry = { id: number; path: string; command: string; output: TerminalOutputValue }
-type Directory = '' | 'projects' | 'experience'
+type Directory = '' | 'experience'
 
 const INITIAL_ENTRIES: Entry[] = [
   { id: 0, path: ROOT_PATH, command: 'whoami', output: { kind: 'about' } },
   { id: 1, path: ROOT_PATH, command: 'dir', output: { kind: 'directory' } },
 ]
 
-const COMMANDS = ['help', 'dir', 'about', 'whoami', 'projects', 'experience', 'stack', 'skills', 'contact', 'resume', 'activity', 'all', 'history', 'cls', 'clear', 'exit', 'ver', 'echo', 'cd', 'type']
+const COMMANDS = ['help', 'dir', 'about', 'whoami', 'experience', 'stack', 'skills', 'contact', 'resume', 'activity', 'all', 'history', 'cls', 'clear', 'exit', 'ver', 'echo', 'cd', 'type']
 const FILES: Record<string, TerminalOutputValue['kind']> = {
   'about.txt': 'about', 'stack.txt': 'stack', 'contact.txt': 'contact', 'resume.txt': 'resume', 'activity.log': 'activity', 'activity.txt': 'activity',
 }
@@ -93,12 +93,6 @@ export default function TerminalPortfolio({ data }: { data: PortfolioData }) {
       case 'about':
         output = { kind: 'about' }
         break
-      case 'projects':
-      case 'project': {
-        const project = PROJECTS.find(project => [project.slug, project.name.toLowerCase(), ...(project.aliases ?? [])].includes(argument.toLowerCase()))
-        output = !target ? { kind: 'projects' } : project ? { kind: 'project', value: project.slug } : { kind: 'text', value: `Project not found: ${argument}\nType projects to list available work.` }
-        break
-      }
       case 'experience':
       case 'contact':
       case 'resume':
@@ -128,10 +122,10 @@ export default function TerminalPortfolio({ data }: { data: PortfolioData }) {
           output = { kind: 'directory' }
         } else {
           const destination = target.replace(`${ROOT_PATH.toLowerCase()}\\`, '').replace(/^\.\\/, '').replace(/\\$/, '')
-          if (destination === 'projects' || destination === 'experience') {
+          if (destination === 'experience') {
             setDirectory(destination)
             output = { kind: destination }
-          } else output = { kind: 'text', value: 'The system cannot find the path specified.\nAvailable directories: projects, experience. Use cd .. to return home.' }
+          } else output = { kind: 'text', value: 'The system cannot find the path specified.\nAvailable directory: experience. Use cd .. to return home.' }
         }
         break
       }
@@ -182,8 +176,7 @@ export default function TerminalPortfolio({ data }: { data: PortfolioData }) {
         ...COMMANDS,
         ...DIRECTORY.filter(file => !file.kind).map(file => `type ${file.name}`),
         ...DIRECTORY.filter(file => !file.kind).map(file => `cat ${file.name}`),
-        'cd projects', 'cd experience', 'cd ..',
-        ...PROJECTS.map(project => `projects ${project.slug}`),
+        'cd experience', 'cd ..',
       ]
       const matches = completion.current?.matches ?? candidates.filter(candidate => candidate.startsWith(input.toLowerCase()))
       if (!matches.length) return

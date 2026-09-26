@@ -1,13 +1,12 @@
 import TerminalPortfolio from '@/components/terminal-portfolio'
 import { ACTIVITY, CAPTURED_AT, CONTRIBUTIONS } from './activity'
 import { CHANNELS } from './contact'
-import { TECH } from './tech'
-import { PROFILE } from './portfolio'
+import { SKILL_GROUPS } from './tech'
 
 export default function Home() {
   return <TerminalPortfolio data={{
     channels: CHANNELS.map(({ name, value, href }) => ({ name, value, href })),
-    skills: [...new Set([...PROFILE.primarySkills, ...TECH.map(({ name }) => name)])],
+    skills: SKILL_GROUPS,
     activity: ACTIVITY,
     capturedAt: CAPTURED_AT,
     contributions: CONTRIBUTIONS,

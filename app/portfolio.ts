@@ -1,15 +1,32 @@
 import type { ContributionSummary } from './activity'
-
-export type PortfolioProject = { slug: string; name: string; stack: string; description: string; href?: string; aliases?: string[] }
+import type { SkillGroup } from './tech'
 
 export const PROFILE = {
   headline: 'Artificial Intelligence & Analytics',
   location: 'Tampa, Florida',
-  bio: 'I evaluate AI models and build analytics tools that turn data into decisions. My work spans LLM evaluation, Python and SQL pipelines, KPI dashboards, forecasting, and workflow automation.',
-  education: 'Studying Artificial Intelligence & Business Analytics at the University of South Florida. Graduating May 2027.',
-  focus: 'Python / SQL / LLM evaluation / Multi-agent systems / Business intelligence',
-  primarySkills: ['Python', 'SQL', 'LLM evaluation', 'Large Language Models', 'Multi-agent Systems', 'Prompt Engineering', 'ETL Pipelines', 'Tableau', 'Power BI', 'Excel', 'R', 'Java', 'Codex', 'Claude Code', 'Cursor'],
+  bio: 'I am a University of South Florida student working in AI model evaluation. My technical work includes Python and SQL analysis, data pipelines, dashboards, and forecasting.',
+  focus: 'Python / SQL / LLM evaluation / Data analysis / ETL',
 }
+
+export const EDUCATION = {
+  school: 'University of South Florida',
+  location: 'Tampa, Florida',
+  degree: 'B.S. in Artificial Intelligence, Business Analytics & Information Systems',
+  graduation: 'Expected May 2027',
+  coursework: ['Business Analytics', 'Information Systems', 'Data Analysis', 'SQL & Databases', 'Programming Fundamentals (Python, Java)', 'Statistics'],
+}
+
+export const CERTIFICATIONS = [
+  { name: 'Programming with Python Professional Certificate', issuer: 'OpenEDG Python Institute', date: 'May 2026' },
+  { name: 'Career Essentials in Data Analysis', issuer: 'Microsoft & LinkedIn', date: 'Apr 2026' },
+  { name: 'Career Essentials in GitHub Professional Certificate', issuer: 'GitHub', date: 'Apr 2026' },
+]
+
+export const LEADERSHIP = [
+  { role: 'Social Resources Chair', organization: 'Alpha Epsilon Pi (Psi Phi)', dates: 'Nov 2025 – Present', description: 'Coordinate event logistics, vendor communication, and executive board updates under budget and compliance constraints.' },
+  { role: 'Leadership Development Scholar', organization: 'National Society of Leadership and Success', dates: 'Sep 2024 – Present', description: 'Completed programming in communication, accountability, team development, and public speaking.' },
+  { role: 'Member', organization: 'Future Business Leaders of America, USF Chapter', dates: '', description: 'Chapter programming across business analytics, finance, and information systems professional development.' },
+]
 
 export const EXPERIENCE = [
   {
@@ -55,123 +72,28 @@ export const EXPERIENCE = [
   },
 ]
 
-export const PROJECTS: PortfolioProject[] = [
-  {
-    slug: 'pausepin',
-    name: 'Pausepin',
-    aliases: ['pause pin'],
-    stack: 'TypeScript / Node.js / SQLite / Git',
-    description: 'A local CLI for preserving your goal, next action, and stopping point. Park ideas, save checkpoints, and resume with your notes plus a check for changes in the Git working tree. Zero runtime dependencies; no account, telemetry, or cloud sync.',
-    href: 'https://github.com/tylerdobson/pausepin',
-  },
-  {
-    slug: 'unova-canvas-usf',
-    name: 'Unova Canvas Theme / USF',
-    aliases: ['unova', 'canvas-theme', 'unova canvas theme', 'unova canvas theme usf'],
-    stack: 'JavaScript / CSS / Chrome Extension / C++',
-    description: 'An unofficial presentation-only Chrome extension for the MyUSF Canvas dashboard. Combines an Unova-inspired skyline and animated Generation V Pokémon with a C++/ASCII terminal workbench, independent appearance controls, local preferences, and reduced-motion support. The terminal is a JavaScript visualization; the extension does not change coursework or submit academic actions.',
-    href: 'https://github.com/tylerdobson/Canvas-Theme',
-  },
-  {
-    slug: 'decision-intelligence',
-    name: 'Decision Intelligence Lab',
-    stack: 'Python / SQL / pandas / Streamlit / Plotly / pytest',
-    description: 'An analytics sandbox with KPI, forecasting, scenario-analysis, and recommendation engines over 1,728 modeled operating records. Includes SQLite storage, documented assumptions, export workflows, and calculation tests.',
-    href: 'https://github.com/tylerdobson/decision-intelligence-lab',
-  },
-  {
-    slug: 'nostos',
-    name: 'Nostos',
-    stack: 'Three.js / WebGL',
-    description: 'A voyage of Odysseus home from Troy. The ship cannot make ground to windward at all.',
-  },
-  {
-    slug: 'crypto-cycle',
-    name: 'Crypto Cycle Intelligence Lab',
-    stack: 'Python / Simulation & calibration',
-    description: 'Probabilistic cryptocurrency cycle simulation, calibration, and decision intelligence.',
-  },
-  {
-    slug: 'airbnb',
-    name: 'Airbnb Market Intelligence',
-    stack: 'Python / SQL / Analytics',
-    description: '1,631 listings across six areas. Revenue estimated from nightly rate and availability, and labelled as an estimate.',
-  },
-  {
-    slug: 'career-command-center',
-    name: 'Career Command Center',
-    stack: 'Next.js / TypeScript',
-    description: 'Full-stack evidence tracker with seed data, tests, and demo media.',
-  },
-  {
-    slug: 'charge-frontier',
-    name: 'Charge Frontier',
-    stack: 'React / Vite',
-    description: 'Web demo from the charge-web project. Demo data is fictional.',
-  },
-  {
-    slug: 'sbn-autostyling',
-    name: 'SBN Autostyling',
-    stack: 'Website',
-    description: 'An automotive styling website with guides and a client-work showcase.',
-  },
-  {
-    slug: 'task-manager',
-    name: 'Task Manager',
-    stack: 'React / Next.js',
-    description: 'A task management application and dashboard.',
-  },
-  {
-    slug: 'spotify-analytics',
-    name: 'Spotify Analytics',
-    stack: 'Python / pandas / Plotly / Streamlit',
-    description: 'A data visualization dashboard exploring Spotify features and top content.',
-  },
-  {
-    slug: 'sales-forecasting',
-    name: 'Sales Forecasting',
-    stack: 'Tableau',
-    description: 'A sales forecasting dashboard and Tableau workbook.',
-  },
-  {
-    slug: 'sec-financials',
-    name: 'SEC Financials ETL',
-    stack: 'Python / ETL / SEC EDGAR',
-    description: 'An end-to-end pipeline that ingests SEC EDGAR filings into structured balance sheet, income statement, and cash flow tables with reproducible transformations.',
-  },
-  {
-    slug: 'skill-radar',
-    name: 'Job Market Skill Radar',
-    stack: 'Analytics',
-    description: 'Job market analysis with a role-family skill matrix and skill-category summaries.',
-  },
-]
-
 export const ROOT_PATH = 'C:\\Users\\Tyler'
 
 export const DIRECTORY = [
-  { name: 'projects', kind: '<DIR>', command: 'projects', description: 'Selected work & experiments' },
   { name: 'experience', kind: '<DIR>', command: 'experience', description: 'AI evaluation, data science & operations' },
   { name: 'about.txt', kind: '', command: 'type about.txt', description: 'A little about me' },
   { name: 'stack.txt', kind: '', command: 'type stack.txt', description: 'Languages, tools & frameworks' },
   { name: 'contact.txt', kind: '', command: 'type contact.txt', description: 'Get in touch' },
-  { name: 'resume.txt', kind: '', command: 'type resume.txt', description: 'Request my resume' },
+  { name: 'resume.txt', kind: '', command: 'type resume.txt', description: 'Education, experience & skills' },
   { name: 'activity.log', kind: '', command: 'activity', description: 'GitHub contributions / ASCII calendar' },
 ] as const
 
 export const HELP = [
   ['dir', 'List the current directory'],
   ['about', 'Read my bio (also: whoami)'],
-  ['projects', 'Browse all projects'],
-  ['projects <name>', 'Read a project, e.g. projects nostos'],
   ['experience', 'AI evaluation, data science, and work history'],
   ['stack', 'View my technical stack (also: skills)'],
   ['contact', 'Email and social links'],
-  ['resume', 'Request my resume by email'],
+  ['resume', 'Read my resume or download a text copy'],
   ['activity', 'GitHub contribution calendar and text log'],
   ['all', 'Read the full portfolio in one output'],
   ['type <file>', 'Read a file, e.g. type about.txt'],
-  ['cd <directory>', 'Navigate to projects, experience, or ..'],
+  ['cd <directory>', 'Navigate to experience or ..'],
   ['history', 'Show commands from this session'],
   ['cls', 'Clear the screen (also: clear or Ctrl+L)'],
   ['help', 'Show this command list'],
@@ -180,7 +102,7 @@ export const HELP = [
 
 export type PortfolioData = {
   channels: { name: string; value: string; href: string }[]
-  skills: string[]
+  skills: SkillGroup[]
   activity: { repo: string; message: string; date: string; url: string }[]
   capturedAt: string
   contributions: ContributionSummary

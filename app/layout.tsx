@@ -3,7 +3,8 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerjamesdobson.com'),
   title: 'Tyler James Dobson — AI & Analytics',
-  description: 'Tyler James Dobson works in AI model evaluation and data science, building Python and SQL analytics, decision-support tools, and automated workflows. Explore his experience and projects in an interactive terminal.',
+  description: 'Tyler James Dobson — AI model evaluation, Python and SQL analytics, and business intelligence. Explore his education, experience, skills, resume, and GitHub activity in an interactive terminal.',
+  alternates: { canonical: '/' },
 }
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#000000' }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
