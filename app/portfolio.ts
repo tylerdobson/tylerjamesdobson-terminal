@@ -73,7 +73,51 @@ export const EXPERIENCE = [
 
 export const ROOT_PATH = 'C:\\Users\\Tyler'
 
+export type PortfolioProject = {
+  slug: string
+  name: string
+  stack: string
+  description: string
+  href?: string
+  aliases?: string[]
+  note?: string
+}
+
+export const PROJECTS: PortfolioProject[] = [
+  {
+    slug: 'pausepin',
+    name: 'Pausepin',
+    stack: 'TypeScript / Node.js / SQLite / Git',
+    description: 'A local CLI for saving a task goal, next action, and return notes. It parks ideas, records checkpoints, and checks for changes in the Git working tree when you resume.',
+    href: 'https://github.com/tylerdobson/pausepin',
+  },
+  {
+    slug: 'ufc-prediction-model',
+    name: 'UFC Prediction Model',
+    stack: 'Python / SQLite / Streamlit / Elo / Logistic Regression',
+    description: 'A research-stage system for source-dated UFC cards and odds, Elo and logistic win-probability models, and paper-trading records. Its live decision workflow remains under validation.',
+    aliases: ['ufc', 'ufc prediction', 'ufc model'],
+    note: 'Private repository; source is not publicly available.',
+  },
+  {
+    slug: 'nostos',
+    name: 'Nostos',
+    stack: 'JavaScript / Three.js / WebGL / Vite',
+    description: 'A browser sailing game inspired by Odysseus’s voyage home from Troy, with procedural scenery, an ocean simulation, ship controls, and scripted encounters.',
+    href: 'https://github.com/tylerdobson/nostos',
+  },
+  {
+    slug: 'this-website',
+    name: 'This Website',
+    stack: 'TypeScript / Next.js / React / CSS / GitHub Pages',
+    description: 'The terminal-style portfolio you are using, with keyboard and clickable commands, accessible output, and a dated GitHub contribution snapshot. It is statically exported and manually deployed to GitHub Pages.',
+    aliases: ['website', 'site', 'portfolio'],
+    href: 'https://github.com/tylerdobson/tylerjamesdobson-terminal',
+  },
+]
+
 export const DIRECTORY = [
+  { name: 'projects', kind: '<DIR>', command: 'projects', description: 'Selected work' },
   { name: 'experience', kind: '<DIR>', command: 'experience', description: 'AI evaluation, data science & operations' },
   { name: 'about.txt', kind: '', command: 'type about.txt', description: 'A little about me' },
   { name: 'stack.txt', kind: '', command: 'type stack.txt', description: 'Languages, tools & frameworks' },
@@ -84,7 +128,9 @@ export const DIRECTORY = [
 
 export const HELP = [
   ['dir', 'List the current directory'],
-  ['about', 'Read my bio (also: whoami)'],
+  ['about', 'Read my background (also: whoami)'],
+  ['projects', 'Browse selected work'],
+  ['projects <name>', 'Read a project, e.g. projects nostos'],
   ['experience', 'AI evaluation, data science, and work history'],
   ['stack', 'View my technical stack (also: skills)'],
   ['contact', 'Email and social links'],
@@ -92,7 +138,7 @@ export const HELP = [
   ['activity', 'GitHub contribution calendar and text log'],
   ['all', 'Read the full portfolio in one output'],
   ['type <file>', 'Read a file, e.g. type about.txt'],
-  ['cd <directory>', 'Navigate to experience or ..'],
+  ['cd <directory>', 'Navigate to projects, experience, or ..'],
   ['history', 'Show commands from this session'],
   ['cls', 'Clear the screen (also: clear or Ctrl+L)'],
   ['help', 'Show this command list'],

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
-import { CERTIFICATIONS, DIRECTORY, EDUCATION, EXPERIENCE, HELP, LEADERSHIP, PROFILE, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
+import { CERTIFICATIONS, DIRECTORY, EDUCATION, EXPERIENCE, HELP, LEADERSHIP, PROFILE, PROJECTS, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
 import { resumeText } from '@/app/resume'
 
-export type TerminalOutputKind = 'directory' | 'about' | 'experience' | 'stack' | 'contact' | 'resume' | 'activity' | 'help' | 'all' | 'text'
+export type TerminalOutputKind = 'directory' | 'about' | 'projects' | 'project' | 'experience' | 'stack' | 'contact' | 'resume' | 'activity' | 'help' | 'all' | 'text'
 export type TerminalOutputValue = { kind: TerminalOutputKind; value?: string }
 
 type OutputProps = {
@@ -43,6 +43,33 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
         <p>{EDUCATION.degree} at the {EDUCATION.school}. {EDUCATION.graduation}.</p>
         <p>{PROFILE.focus}</p>
       </div>
+    case 'projects':
+      return <section className="text-output">
+        <h2>Directory of {ROOT_PATH}\projects</h2>
+        <ul className="project-list">
+          {PROJECTS.map((project, index) => <li key={project.slug}>
+            <span aria-hidden="true">{String(index + 1).padStart(2, '0')}.</span>
+            <div>
+              <h3><CommandLink command={`projects ${project.slug}`} runCommand={runCommand}>{project.name}</CommandLink></h3>
+              <p>{project.stack}</p>
+              <p>{project.description}</p>
+              {project.href ? <p><a href={project.href} target="_blank" rel="noopener noreferrer">View source on GitHub</a></p> : <p>{project.note}</p>}
+            </div>
+          </li>)}
+        </ul>
+        <p>{PROJECTS.length} projects. Click a name or type projects &lt;name&gt; for its details.</p>
+      </section>
+    case 'project': {
+      const project = PROJECTS.find(item => item.slug === output.value)
+      if (!project) return <p>Project not found. Type projects to list selected work.</p>
+      return <article className="text-output project-detail">
+        <h2>{project.name}</h2>
+        <p>{project.stack}</p>
+        <p>{project.description}</p>
+        {project.href ? <p><a href={project.href} target="_blank" rel="noopener noreferrer">View source on GitHub</a></p> : <p>{project.note}</p>}
+        <p><CommandLink command="projects" runCommand={runCommand}>Back to projects</CommandLink></p>
+      </article>
+    }
     case 'experience':
       return <section className="text-output">
         <h2>Experience</h2>
@@ -145,6 +172,7 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
     case 'all':
       return <div className="all-output">
         <section><TerminalOutput output={{ kind: 'resume' }} data={data} runCommand={runCommand} /></section>
+        <section><TerminalOutput output={{ kind: 'projects' }} data={data} runCommand={runCommand} /></section>
         <section><TerminalOutput output={{ kind: 'activity' }} data={data} runCommand={runCommand} /></section>
       </div>
     case 'text':

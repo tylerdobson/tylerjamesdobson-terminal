@@ -1,6 +1,6 @@
 # Tyler James Dobson — Terminal Portfolio
 
-A static portfolio presented as an interactive command prompt. Visitors can explore Tyler’s education, experience, technical skills, resume, contact links, and GitHub contribution calendar using typed commands or clickable links.
+A static portfolio presented as an interactive command prompt. Visitors can explore Tyler’s projects, education, experience, technical skills, resume, contact links, and GitHub contribution calendar using typed commands or clickable links.
 
 Live site: [tylerjamesdobson.com](https://tylerjamesdobson.com).
 
@@ -9,11 +9,11 @@ Source repository: [tylerdobson/tylerjamesdobson-terminal](https://github.com/ty
 ## Features
 
 - Command Prompt inspired interface with clickable output and a mobile submit button.
-- Commands: `help`, `dir`, `about`, `experience`, `stack`, `contact`, `resume`, `activity`, `all`, `type`, `cd`, `history`, `cls`, and `exit`.
+- Commands: `help`, `dir`, `about`, `projects`, `projects <name>`, `experience`, `stack`, `contact`, `resume`, `activity`, `all`, `type`, `cd`, `history`, `cls`, and `exit`.
 - Tab completion, command history, keyboard navigation, reduced-motion support, and an accessible output log.
 - The terminal runs entirely in the visitor’s browser. Commands browse portfolio content; they do not execute shell commands.
 - The `resume` command displays education, experience, skills, certifications, and leadership. Its text download uses the same content as the display.
-- A project showcase is intentionally omitted for now.
+- The projects directory features Pausepin, UFC Prediction Model, Nostos, and this website. The UFC repository is private, so its listing has no source link.
 
 ## Technology
 
@@ -47,7 +47,7 @@ A [manual GitHub Pages deployment workflow](.github/workflows/deploy-pages.yml) 
 | Path | Purpose |
 | --- | --- |
 | `app/page.tsx`, `app/layout.tsx` | Page assembly, metadata, and document layout |
-| `app/portfolio.ts` | Biography, education, experience, certifications, leadership, and command descriptions |
+| `app/portfolio.ts` | Profile, projects, education, experience, certifications, leadership, and command descriptions |
 | `app/contact.ts`, `app/tech.ts` | Public contact links and technical skills |
 | `app/resume.ts` | Generates the public text resume from the same content used on screen |
 | `components/terminal-portfolio.tsx` | Interactive terminal and command handling |
@@ -73,7 +73,7 @@ If GitHub cannot be reached during a build, the build keeps the last saved snaps
 
 The application does not make automatic third-party requests or use analytics. Typed commands and history stay in page memory and are not transmitted or persisted. GitHub, LinkedIn, and email links open only when a visitor chooses them. The resume text download is generated in the browser.
 
-Experience and education details, contact links, skills, resume content, and the contribution snapshot are intended as public information. The original resume PDF, phone number, street address, credentials, and legacy design assets are not included. The `public/` directory contains the activity download and search-engine discovery files.
+Project descriptions, experience and education details, contact links, skills, resume content, and the contribution snapshot are intended as public information. The original resume PDF, phone number, street address, credentials, and legacy design assets are not included. The `public/` directory contains the activity download and search-engine discovery files.
 
 See [content sources and maintenance](docs/content.md) for how resume facts and GitHub technologies are kept consistent. No skill ratings or proficiency percentages are inferred from repository statistics.
 

@@ -90,6 +90,11 @@ ul { padding: 0; list-style: none; }
 .directory-list { margin: 24px 0; }
 .directory-row { display: grid; grid-template-columns: 9ch 16ch minmax(0, 1fr); align-items: baseline; }
 .directory-row .command-link { justify-self: start; }
+.project-list { display: grid; gap: 20px; margin: 12px 0 20px; }
+.project-list li { display: grid; grid-template-columns: 3ch minmax(0, 1fr); gap: 1ch; }
+.project-list h3 .command-link { text-decoration: underline; text-underline-offset: 4px; }
+.project-list p, .project-detail p { margin-top: 4px; }
+.project-detail p:last-child { margin-top: 12px; }
 .skill-group { margin-top: 18px; }
 .skill-group h3, .resume-output h3, .resume-output h4 { text-decoration: underline; text-underline-offset: 4px; }
 .stack-list { display: grid; grid-template-columns: repeat(3, minmax(0, 20ch)); gap: 0 4ch; margin: 12px 0; max-width: 78ch; }
