@@ -211,7 +211,7 @@ export default function TerminalPortfolio({ data }: { data: PortfolioData }) {
   }
 
   return <main className="terminal" id="home">
-    <h1 className="sr-only">Tyler James Dobson — portfolio</h1>
+    <h1 className="sr-only">Tyler James Dobson</h1>
     <header className="terminal-titlebar">
       <span className="terminal-icon" aria-hidden="true">&gt;_</span>
       <span className="terminal-title">Command Prompt — Tyler James Dobson</span>

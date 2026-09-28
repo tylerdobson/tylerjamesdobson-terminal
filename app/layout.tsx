@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerjamesdobson.com'),
-  title: 'Tyler James Dobson — Business Analytics and Information Systems',
+  title: 'Tyler James Dobson',
   description: 'Tyler James Dobson is a Business Analytics and Information Systems major at the University of South Florida. Explore his education, experience, skills, resume, and GitHub activity in an interactive terminal.',
   alternates: { canonical: '/' },
 }
