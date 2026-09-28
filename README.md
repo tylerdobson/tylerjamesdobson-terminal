@@ -6,6 +6,34 @@ Live site: [tylerjamesdobson.com](https://tylerjamesdobson.com).
 
 Source repository: [tylerdobson/tylerjamesdobson-terminal](https://github.com/tylerdobson/tylerjamesdobson-terminal).
 
+## Project screenshots
+
+These are screenshots of the running projects listed on the site. Pausepin and UFC Prediction Model use fictional demo data in these captures.
+
+### Pausepin
+
+The CLI restores a saved next action and note, then flags a change in the demo Git repository.
+
+![Pausepin terminal showing the restored task, next action, note, and Git change warning.](docs/screenshots/pausepin.png)
+
+### UFC Prediction Model
+
+The read-only Streamlit dashboard displays a fictional upcoming card and its decision requirements. The model repository is private.
+
+![UFC Forecast dashboard showing a fictional upcoming card and decision requirements.](docs/screenshots/ufc-prediction-model.png)
+
+### Nostos
+
+The browser game renders the galley deck, crew, ocean, and voyage HUD.
+
+![Nostos gameplay from the galley deck.](docs/screenshots/nostos.png)
+
+### tylerjamesdobson.com
+
+The live terminal portfolio displays its projects directory.
+
+![Terminal portfolio listing Pausepin, UFC Prediction Model, Nostos, and tylerjamesdobson.com.](docs/screenshots/tylerjamesdobson-com.png)
+
 ## Features
 
 - Command Prompt inspired interface with clickable output and a mobile submit button.
