@@ -14,11 +14,11 @@ Projects are intentionally omitted from the site. The public GitHub activity sna
 
 - `app/portfolio.ts`: profile, education, experience, certifications, leadership, and terminal directory/help text.
 - `app/tech.ts`: categorized languages and tools. Python, SQL, JavaScript, HTML/CSS, Java, and data/BI tools follow the resume. TypeScript, web frameworks, Node.js, Supabase, and Playwright are supported by inspected GitHub code. On September 28, Tyler confirmed Java, Excel, and Power BI for inclusion, requested removing R, and requested that AI tools, including Claude Code, Codex, and Cursor, be excluded from the displayed stack.
-- `app/contact.ts`: public email, LinkedIn, and GitHub. Tyler confirmed `tydobson41@gmail.com` as the contact address on September 28. Conflicting X profile values were omitted.
+- `app/contact.ts`: public emails, LinkedIn, and GitHub. Tyler confirmed `tydobson41@gmail.com`, `tylerjamesdobson1@gmail.com`, and `tylerdobson@usf.edu` as contact addresses on September 28. Conflicting X profile values were omitted.
 - `app/resume.ts`: text formatting only. The download reuses the same facts as the rendered resume instead of maintaining a second copy.
 - `scripts/fetch-activity.mjs`: public contribution calendar and recent public commits, with the actual capture date displayed.
 
-The source resume's phone number and additional university email are intentionally omitted from this public version. The public resume contains no project section.
+The source resume's phone number remains omitted from this public version. The public resume contains no project section.
 
 ## Before updating or launching
 
