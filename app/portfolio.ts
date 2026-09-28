@@ -112,7 +112,7 @@ export const PROJECTS: PortfolioProject[] = [
     stack: 'TypeScript / Next.js / React / CSS',
     description: 'The terminal-style portfolio you are using, with keyboard and clickable commands, accessible output, and a dated GitHub contribution snapshot. It is statically exported.',
     aliases: ['website', 'site', 'portfolio', 'tylerjamesdobson.com'],
-    href: 'https://github.com/tylerdobson/tylerjamesdobson-terminal',
+    href: 'https://github.com/tylerdobson/tylerjamesdobson.com--Portfolio-Website',
   },
 ]
 

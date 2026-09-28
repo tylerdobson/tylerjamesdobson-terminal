@@ -4,7 +4,7 @@ A static portfolio presented as an interactive command prompt. Visitors can expl
 
 Live site: [tylerjamesdobson.com](https://tylerjamesdobson.com).
 
-Source repository: [tylerdobson/tylerjamesdobson-terminal](https://github.com/tylerdobson/tylerjamesdobson-terminal).
+Source repository: [tylerdobson/tylerjamesdobson.com--Portfolio-Website](https://github.com/tylerdobson/tylerjamesdobson.com--Portfolio-Website).
 
 ## Project screenshots
 
