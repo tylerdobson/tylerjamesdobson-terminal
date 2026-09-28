@@ -8,8 +8,6 @@ export function resumeText(data: PortfolioData): string {
     PROFILE.location,
     ...data.channels.map(channel => `${channel.name}: ${channel.value}`),
     '',
-    PROFILE.bio,
-    '',
     'EDUCATION',
     `${EDUCATION.school} | ${EDUCATION.location}`,
     `${EDUCATION.degree} | ${EDUCATION.graduation}`,

@@ -40,7 +40,6 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
       return <div className="text-output">
         <h2>Tyler James Dobson</h2>
         <p>{PROFILE.headline} / {PROFILE.location}</p>
-        <p>{PROFILE.bio}</p>
         <p>{EDUCATION.degree} at the {EDUCATION.school}. {EDUCATION.graduation}.</p>
         <p>{PROFILE.focus}</p>
       </div>
@@ -82,7 +81,6 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
         <header className="text-output">
           <h2>Resume / Tyler James Dobson</h2>
           <p>{PROFILE.headline} / {PROFILE.location}</p>
-          <p>{PROFILE.bio}</p>
           <p><a href={'data:text/plain;charset=utf-8,' + encodeURIComponent(resumeText(data))} download="tyler-james-dobson-resume.txt">Download resume.txt</a></p>
           <p><a href={email}>Contact me by email</a></p>
         </header>
