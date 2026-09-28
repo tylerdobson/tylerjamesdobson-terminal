@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
-import { CERTIFICATIONS, DIRECTORY, EDUCATION, EXPERIENCE, HELP, LEADERSHIP, PROFILE, PROJECTS, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
-import { resumeText } from '@/app/resume'
+import { DATA_SCIENCE_PROGRAM, DIRECTORY, EDUCATION, EXPERIENCE, HELP, LEADERSHIP, PROFILE, PROJECTS, ROOT_PATH, type PortfolioData } from '@/app/portfolio'
+import { RESUME_NAME, RESUME_WEBSITE, resumeChannels, resumeChannelValue, resumeText } from '@/app/resume'
 
 export type TerminalOutputKind = 'directory' | 'about' | 'projects' | 'project' | 'experience' | 'stack' | 'contact' | 'resume' | 'activity' | 'help' | 'all' | 'text'
 export type TerminalOutputValue = { kind: TerminalOutputKind; value?: string }
@@ -20,8 +20,6 @@ export function CommandLink({ command, runCommand, children }: {
 }
 
 export default function TerminalOutput({ output, data, runCommand }: OutputProps) {
-  const email = data.channels.find(channel => channel.name === 'Email')?.href ?? ''
-
   switch (output.kind) {
     case 'directory':
       return <>
@@ -106,25 +104,45 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
     case 'resume':
       return <div className="all-output resume-output">
         <header className="text-output">
-          <h2>Resume / Tyler James Dobson</h2>
-          <p>{PROFILE.headline} / {PROFILE.location}</p>
+          <h2>Resume / {RESUME_NAME}</h2>
+          <p>{EDUCATION.location}</p>
+          <p>{resumeChannels(data).map((channel, index, channels) => <span key={channel.name}>
+            <a href={channel.href} target={channel.href.startsWith('https:') ? '_blank' : undefined} rel="noopener noreferrer">{resumeChannelValue(channel)}</a>{index < channels.length - 1 ? ' · ' : ''}
+          </span>)}</p>
+          <p><a href={RESUME_WEBSITE} target="_blank" rel="noopener noreferrer">tylerjamesdobson.com</a></p>
           <p><a href={'data:text/plain;charset=utf-8,' + encodeURIComponent(resumeText(data))} download="tyler-james-dobson-resume.txt">Download resume.txt</a></p>
-          <p><a href={email}>Contact me by email</a></p>
         </header>
         <section className="text-output">
           <h3>Education</h3>
-          <p>{EDUCATION.school} / {EDUCATION.location}</p>
+          <p>{EDUCATION.school} / {EDUCATION.location} / {EDUCATION.graduation}</p>
           <p>{EDUCATION.degree}</p>
-          <p>{EDUCATION.graduation}</p>
-          <p>Relevant coursework: {EDUCATION.coursework.join(', ')}.</p>
         </section>
-        <TerminalOutput output={{ kind: 'experience' }} data={data} runCommand={runCommand} />
-        <TerminalOutput output={{ kind: 'stack' }} data={data} runCommand={runCommand} />
         <section className="text-output">
-          <h3>Certifications</h3>
-          <ul className="experience-highlights">{CERTIFICATIONS.map(certificate => <li key={certificate.name}>
-            {certificate.name} / {certificate.issuer} / {certificate.date}
-          </li>)}</ul>
+          <h3>Experience</h3>
+          <div className="experience-list">{EXPERIENCE.map(position => <article key={position.organization}>
+            <h4>{position.role}</h4>
+            <p>{position.organization} / {position.location} / {position.dates}</p>
+            <ul className="experience-highlights">{position.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
+          </article>)}</div>
+        </section>
+        <section className="text-output">
+          <h3>Projects</h3>
+          <div className="experience-list">{PROJECTS.map(project => <article key={project.slug}>
+            <h4>{project.name}</h4>
+            <p>{project.stack}</p>
+            <ul className="experience-highlights"><li>{project.description}</li></ul>
+            {project.href ? <p><a href={project.href} target="_blank" rel="noopener noreferrer">{project.href.replace('https://', '')}</a></p> : <p>{project.note}</p>}
+          </article>)}</div>
+        </section>
+        <section className="text-output">
+          <h3>Tools &amp; skills</h3>
+          {data.skills.map(group => <p key={group.name}><strong>{group.name}:</strong> {group.items.join(', ')}</p>)}
+        </section>
+        <section className="text-output">
+          <h3>Relevant coursework</h3>
+          <p>{EDUCATION.coursework.join('; ')}.</p>
+          <h4>{DATA_SCIENCE_PROGRAM.name} / {DATA_SCIENCE_PROGRAM.organization} / {DATA_SCIENCE_PROGRAM.dates}</h4>
+          <ul className="experience-highlights">{DATA_SCIENCE_PROGRAM.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
         </section>
         <section className="text-output">
           <h3>Leadership</h3>
@@ -134,7 +152,6 @@ export default function TerminalOutput({ output, data, runCommand }: OutputProps
             <p>{position.description}</p>
           </article>)}</div>
         </section>
-        <TerminalOutput output={{ kind: 'contact' }} data={data} runCommand={runCommand} />
       </div>
     case 'activity':
       return <section className="contribution-output">

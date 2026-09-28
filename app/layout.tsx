@@ -3,7 +3,7 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerjamesdobson.com'),
   title: 'Tyler James Dobson',
-  description: 'Tyler James Dobson is a Business Analytics and Information Systems major at the University of South Florida. Explore his projects, education, experience, skills, resume, and GitHub activity in an interactive terminal.',
+  description: 'Tyler James Dobson is a University of South Florida student earning a B.S. in Business Analytics & Information Systems. Explore his projects, education, experience, skills, resume, and GitHub activity in an interactive terminal.',
   alternates: { canonical: '/' },
 }
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#000000' }

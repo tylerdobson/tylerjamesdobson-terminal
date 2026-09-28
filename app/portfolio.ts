@@ -9,20 +9,24 @@ export const PROFILE = {
 
 export const EDUCATION = {
   school: 'University of South Florida',
-  location: 'Tampa, Florida',
-  degree: 'Business Analytics and Information Systems major',
+  location: 'Tampa, FL',
+  degree: 'B.S. in Business Analytics & Information Systems',
   graduation: 'Expected May 2027',
-  coursework: ['Business Analytics', 'Information Systems', 'Data Analysis', 'SQL & Databases', 'Programming Fundamentals (Python, Java)', 'Statistics'],
+  coursework: ['Database Design and Administration', 'Python for Business Analytics', 'Systems Analysis and Design', 'Business Application Development'],
 }
 
-export const CERTIFICATIONS = [
-  { name: 'Programming with Python Professional Certificate', issuer: 'OpenEDG Python Institute', date: 'May 2026' },
-  { name: 'Career Essentials in Data Analysis', issuer: 'Microsoft & LinkedIn', date: 'Apr 2026' },
-  { name: 'Career Essentials in GitHub Professional Certificate', issuer: 'GitHub', date: 'Apr 2026' },
-]
+export const DATA_SCIENCE_PROGRAM = {
+  name: 'Data Science Program',
+  organization: 'The Global Career Accelerator',
+  dates: 'May 2026 – Aug 2026',
+  highlights: [
+    'Completed USF/Podium credit-bearing coursework; developed SQL and Python (pandas, NumPy) skills through industry-partner projects with Intel and The Recording Academy.',
+    'Collaborated with a global student cohort under industry-practitioner mentorship to deliver analyses on Grammy.com content and audience strategy.',
+  ],
+}
 
 export const LEADERSHIP = [
-  { role: 'Social Resources Chair', organization: 'Alpha Epsilon Pi (Psi Phi)', dates: 'Nov 2025 – Present', description: 'Coordinate event logistics, vendor communication, and executive board updates under budget and compliance constraints.' },
+  { role: 'Social Resources Chair', organization: 'Alpha Epsilon Pi (Psi Phi)', dates: 'Nov 2025 – Aug 2026', description: 'Coordinated event logistics, vendor communication, and executive board updates under budget and compliance constraints.' },
   { role: 'Leadership Development Scholar', organization: 'National Society of Leadership and Success', dates: 'Sep 2024 – Present', description: 'Completed programming in communication, accountability, team development, and public speaking.' },
   { role: 'Member', organization: 'Future Business Leaders of America, USF Chapter', dates: '', description: 'Chapter programming across business analytics, finance, and information systems professional development.' },
 ]
@@ -30,23 +34,13 @@ export const LEADERSHIP = [
 export const EXPERIENCE = [
   {
     role: 'AI Model Evaluation Contractor',
-    organization: 'Handshake AI Fellowship / Handshake',
-    location: 'Tampa, FL / Remote / Part-time',
+    organization: 'Handshake AI Fellowship, Handshake',
+    location: 'Tampa, FL (Remote) / Part-time',
     dates: 'Apr 2026 – Present',
     highlights: [
-      'Evaluate AI-generated text, code, and multimodal outputs for accuracy, reasoning quality, and instruction-following against project-specific rubrics.',
+      'Evaluate AI-generated text, code, and multimodal outputs against project-specific rubrics for accuracy, reasoning quality, and instruction-following.',
       'Provide written response-level feedback supporting LLM training and evaluation workflows under strict confidentiality.',
-      'Identify inconsistencies in model behavior across diverse prompts and benchmark-style tasks.',
-    ],
-  },
-  {
-    role: 'Data Science Extern',
-    organization: 'The Global Career Accelerator',
-    location: 'Tampa, FL / Remote / Part-time',
-    dates: 'May 2026 – Present',
-    highlights: [
-      'Selected for a USF/Podium credit-bearing externship, building SQL and Python skills with pandas and NumPy through industry-partner projects with Intel and The Recording Academy.',
-      'Collaborate with a global student cohort under industry-practitioner mentorship on Grammy.com content and audience strategy analyses.',
+      'Surface inconsistencies in model behavior across diverse prompts and benchmark-style task types using independent judgment.',
     ],
   },
   {
@@ -56,17 +50,17 @@ export const EXPERIENCE = [
     dates: 'Jan 2026 – Present',
     highlights: [
       'Manage inventory flow and restocking across multiple service areas during arena events serving 15,000–20,000+ attendees.',
-      'Coordinate product movement under time-sensitive conditions to maintain service throughput during peak-volume periods.',
+      'Coordinate product movement under time-sensitive conditions to keep service throughput high during peak-volume periods.',
     ],
   },
   {
     role: 'Bartender',
     organization: 'Legends Global',
     location: 'Philadelphia, PA / Part-time',
-    dates: 'May 2024 – Present',
+    dates: 'May 2024 – Aug 2026',
     highlights: [
-      'Process 200+ transactions per shift across Clover, Toast, and Micros POS systems at events approaching 20,000 attendees.',
-      'Maintain speed, accuracy, and guest experience while coordinating service teams under sustained high-volume conditions.',
+      'Processed 200+ transactions per shift across Clover, Toast, and Micros POS systems at events approaching 20,000 attendees.',
+      'Maintained speed, accuracy, and guest experience while coordinating service teams under sustained high-volume conditions.',
     ],
   },
 ]
@@ -87,30 +81,30 @@ export const PROJECTS: PortfolioProject[] = [
   {
     slug: 'pausepin',
     name: 'Pausepin',
-    stack: 'TypeScript / Node.js / SQLite / Git',
-    description: 'A local CLI for saving a task goal, next action, and return notes. It parks ideas, records checkpoints, and checks for changes in the Git working tree when you resume.',
+    stack: 'TypeScript / Node.js / SQLite',
+    description: 'Built a local-first CLI that saves task checkpoints and next actions in SQLite, with Git change detection to restore context between development sessions.',
     href: 'https://github.com/tylerdobson/pausepin',
   },
   {
     slug: 'ufc-prediction-model',
     name: 'UFC Prediction Model',
-    stack: 'Python / SQLite / Streamlit / Elo / Logistic Regression',
-    description: 'A research-stage system for source-dated UFC cards and odds, Elo and logistic win-probability models, and paper-trading records. Its live decision workflow remains under validation.',
+    stack: 'Python / SQLite / Streamlit',
+    description: 'Developed a research-stage win-probability modeling pipeline and dashboard comparing Elo and logistic regression with chronological holdouts, probability calibration, and timestamped data checks.',
     aliases: ['ufc', 'ufc prediction', 'ufc model'],
     note: 'Private repository; source is not publicly available.',
   },
   {
     slug: 'nostos',
     name: 'Nostos',
-    stack: 'JavaScript / Three.js / WebGL / Vite',
-    description: 'A browser sailing game inspired by Odysseus’s voyage home from Troy, with procedural scenery, an ocean simulation, ship controls, and scripted encounters.',
+    stack: 'JavaScript / Three.js / GLSL',
+    description: 'Created an interactive sailing experience with procedural environments, ocean shaders, first-person controls, and adaptive rendering for varying hardware.',
     href: 'https://github.com/tylerdobson/nostos',
   },
   {
     slug: 'this-website',
     name: 'tylerjamesdobson.com',
-    stack: 'TypeScript / Next.js / React / CSS',
-    description: 'The terminal-style portfolio you are using, with keyboard and clickable commands, accessible output, and a dated GitHub contribution snapshot. It is statically exported.',
+    stack: 'Next.js / React / TypeScript',
+    description: 'Built and deployed a responsive terminal-style portfolio with command navigation, keyboard autocomplete, and GitHub activity integration.',
     aliases: ['website', 'site', 'portfolio', 'tylerjamesdobson.com'],
     href: 'https://github.com/tylerdobson/tylerjamesdobson.com--Portfolio-Website',
   },
@@ -118,11 +112,11 @@ export const PROJECTS: PortfolioProject[] = [
 
 export const DIRECTORY = [
   { name: 'projects', kind: '<DIR>', command: 'projects', description: 'Selected work' },
-  { name: 'experience', kind: '<DIR>', command: 'experience', description: 'AI evaluation, data science & operations' },
+  { name: 'experience', kind: '<DIR>', command: 'experience', description: 'AI evaluation & event operations' },
   { name: 'about.txt', kind: '', command: 'type about.txt', description: 'A little about me' },
   { name: 'stack.txt', kind: '', command: 'type stack.txt', description: 'Languages, tools & frameworks' },
   { name: 'contact.txt', kind: '', command: 'type contact.txt', description: 'Get in touch' },
-  { name: 'resume.txt', kind: '', command: 'type resume.txt', description: 'Education, experience & skills' },
+  { name: 'resume.txt', kind: '', command: 'type resume.txt', description: 'Education, experience, projects & skills' },
   { name: 'activity.log', kind: '', command: 'activity', description: 'GitHub contributions / ASCII calendar' },
 ] as const
 
@@ -131,7 +125,7 @@ export const HELP = [
   ['about', 'Read my background (also: whoami)'],
   ['projects', 'Browse selected work'],
   ['projects <name>', 'Read a project, e.g. projects nostos'],
-  ['experience', 'AI evaluation, data science, and work history'],
+  ['experience', 'AI evaluation and event operations'],
   ['stack', 'View my technical stack (also: skills)'],
   ['contact', 'Email and social links'],
   ['resume', 'Read my resume or download a text copy'],

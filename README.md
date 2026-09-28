@@ -40,7 +40,7 @@ The live terminal portfolio displays its projects directory.
 - Commands: `help`, `dir`, `about`, `projects`, `projects <name>`, `experience`, `stack`, `contact`, `resume`, `activity`, `all`, `type`, `cd`, `history`, `cls`, and `exit`.
 - Tab completion, command history, keyboard navigation, reduced-motion support, and an accessible output log.
 - The terminal runs entirely in the visitor’s browser. Commands browse portfolio content; they do not execute shell commands.
-- The `resume` command displays education, experience, skills, certifications, and leadership. Its text download uses the same content as the display.
+- The `resume` command displays education, experience, projects, skills, coursework, and leadership. Its text download uses the same source facts as the display.
 - The projects directory features Pausepin, UFC Prediction Model, Nostos, and tylerjamesdobson.com. The UFC repository is private, so its listing has no source link.
 
 ## Technology
@@ -75,7 +75,7 @@ A [manual GitHub Pages deployment workflow](.github/workflows/deploy-pages.yml) 
 | Path | Purpose |
 | --- | --- |
 | `app/page.tsx`, `app/layout.tsx` | Page assembly, metadata, and document layout |
-| `app/portfolio.ts` | Profile, projects, education, experience, certifications, leadership, and command descriptions |
+| `app/portfolio.ts` | Profile, projects, education, experience, coursework, leadership, and command descriptions |
 | `app/contact.ts`, `app/tech.ts` | Public contact links and technical skills |
 | `app/resume.ts` | Generates the public text resume from the same content used on screen |
 | `components/terminal-portfolio.tsx` | Interactive terminal and command handling |

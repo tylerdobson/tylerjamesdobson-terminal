@@ -1,17 +1,28 @@
-import { CERTIFICATIONS, EDUCATION, EXPERIENCE, LEADERSHIP, PROFILE, type PortfolioData } from './portfolio'
+import { DATA_SCIENCE_PROGRAM, EDUCATION, EXPERIENCE, LEADERSHIP, PROJECTS, type PortfolioData } from './portfolio'
 
-// The display and download share the same data so corrections reach both.
+export const RESUME_NAME = 'Tyler Dobson'
+export const RESUME_WEBSITE = 'https://tylerjamesdobson.com'
+
+// Keep the PDF's public contact channels in the resume; the contact command has more options.
+export function resumeChannels(data: PortfolioData) {
+  return data.channels.filter(channel => ['Email', 'USF email', 'LinkedIn', 'GitHub'].includes(channel.name))
+}
+
+export function resumeChannelValue(channel: PortfolioData['channels'][number]) {
+  return channel.href.startsWith('https://') ? channel.href.slice('https://'.length) : channel.value
+}
+
+// The display and download share the same source facts so corrections reach both.
 export function resumeText(data: PortfolioData): string {
   return [
-    'TYLER JAMES DOBSON',
-    PROFILE.headline,
-    PROFILE.location,
-    ...data.channels.map(channel => `${channel.name}: ${channel.value}`),
+    RESUME_NAME.toUpperCase(),
+    EDUCATION.location,
+    ...resumeChannels(data).map(channel => `${channel.name}: ${resumeChannelValue(channel)}`),
+    `Website: ${RESUME_WEBSITE}`,
     '',
     'EDUCATION',
-    `${EDUCATION.school} | ${EDUCATION.location}`,
-    `${EDUCATION.degree} | ${EDUCATION.graduation}`,
-    `Relevant coursework: ${EDUCATION.coursework.join(', ')}`,
+    `${EDUCATION.school} | ${EDUCATION.location} | ${EDUCATION.graduation}`,
+    EDUCATION.degree,
     '',
     'EXPERIENCE',
     ...EXPERIENCE.flatMap(position => [
@@ -20,11 +31,20 @@ export function resumeText(data: PortfolioData): string {
       ...position.highlights.map(highlight => `- ${highlight}`),
       '',
     ]),
+    'PROJECTS',
+    ...PROJECTS.flatMap(project => [
+      `${project.name} | ${project.stack}`,
+      `- ${project.description}`,
+      project.href ?? project.note ?? '',
+      '',
+    ]),
     'TOOLS & SKILLS',
     ...data.skills.map(group => `${group.name}: ${group.items.join(', ')}`),
     '',
-    'CERTIFICATIONS',
-    ...CERTIFICATIONS.map(certificate => `${certificate.name} | ${certificate.issuer} | ${certificate.date}`),
+    'RELEVANT COURSEWORK',
+    EDUCATION.coursework.join('; '),
+    `${DATA_SCIENCE_PROGRAM.name} | ${DATA_SCIENCE_PROGRAM.organization} | ${DATA_SCIENCE_PROGRAM.dates}`,
+    ...DATA_SCIENCE_PROGRAM.highlights.map(highlight => `- ${highlight}`),
     '',
     'LEADERSHIP',
     ...LEADERSHIP.flatMap(position => [
@@ -32,7 +52,5 @@ export function resumeText(data: PortfolioData): string {
       position.description,
       '',
     ]),
-    'Website: https://tylerjamesdobson.com',
-    '',
   ].join('\n')
 }
