@@ -2,7 +2,7 @@ import type { ContributionSummary } from './activity'
 import type { SkillGroup } from './tech'
 
 export const PROFILE = {
-  headline: 'Artificial Intelligence & Analytics',
+  headline: 'Business Analytics and Information Systems',
   location: 'Tampa, Florida',
   bio: 'I am a University of South Florida student working in AI model evaluation. My technical work includes Python and SQL analysis, data pipelines, dashboards, and forecasting.',
   focus: 'Python / SQL / LLM evaluation / Data analysis / ETL',
@@ -11,7 +11,7 @@ export const PROFILE = {
 export const EDUCATION = {
   school: 'University of South Florida',
   location: 'Tampa, Florida',
-  degree: 'B.S. in Artificial Intelligence, Business Analytics & Information Systems',
+  degree: 'Business Analytics and Information Systems major',
   graduation: 'Expected May 2027',
   coursework: ['Business Analytics', 'Information Systems', 'Data Analysis', 'SQL & Databases', 'Programming Fundamentals (Python, Java)', 'Statistics'],
 }
