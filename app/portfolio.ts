@@ -4,7 +4,7 @@ import type { SkillGroup } from './tech'
 export const PROFILE = {
   headline: 'Business Analytics and Information Systems',
   location: 'Tampa, Florida',
-  focus: 'Python / SQL / LLM evaluation / Data analysis / ETL',
+  focus: 'Python / JavaScript / SQL / Data Analysis / Business Intelligence',
 }
 
 export const EDUCATION = {
