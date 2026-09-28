@@ -108,10 +108,10 @@ export const PROJECTS: PortfolioProject[] = [
   },
   {
     slug: 'this-website',
-    name: 'This Website',
-    stack: 'TypeScript / Next.js / React / CSS / GitHub Pages',
-    description: 'The terminal-style portfolio you are using, with keyboard and clickable commands, accessible output, and a dated GitHub contribution snapshot. It is statically exported and manually deployed to GitHub Pages.',
-    aliases: ['website', 'site', 'portfolio'],
+    name: 'tylerjamesdobson.com',
+    stack: 'TypeScript / Next.js / React / CSS',
+    description: 'The terminal-style portfolio you are using, with keyboard and clickable commands, accessible output, and a dated GitHub contribution snapshot. It is statically exported.',
+    aliases: ['website', 'site', 'portfolio', 'tylerjamesdobson.com'],
     href: 'https://github.com/tylerdobson/tylerjamesdobson-terminal',
   },
 ]

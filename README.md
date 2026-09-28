@@ -13,7 +13,7 @@ Source repository: [tylerdobson/tylerjamesdobson-terminal](https://github.com/ty
 - Tab completion, command history, keyboard navigation, reduced-motion support, and an accessible output log.
 - The terminal runs entirely in the visitor’s browser. Commands browse portfolio content; they do not execute shell commands.
 - The `resume` command displays education, experience, skills, certifications, and leadership. Its text download uses the same content as the display.
-- The projects directory features Pausepin, UFC Prediction Model, Nostos, and this website. The UFC repository is private, so its listing has no source link.
+- The projects directory features Pausepin, UFC Prediction Model, Nostos, and tylerjamesdobson.com. The UFC repository is private, so its listing has no source link.
 
 ## Technology
 

@@ -8,7 +8,7 @@ The owner confirmed `resume.pdf` as the latest resume for the September 26 updat
 
 GitHub repository code and manifests were reviewed to substantiate additional languages and development tools. A technology appearing in code is evidence of use, not an expertise rating, employment history, or proof of sole authorship. The site does not invent skill percentages, years of experience, audience numbers, or production outcomes.
 
-The projects directory includes Pausepin, UFC Prediction Model, Nostos, and this website. Pausepin, Nostos, and the website link to their public source repositories. The UFC repository is private, so the site gives a high-level, research-stage description without a source link or prediction-performance claim. Project summaries were checked against the repositories on September 28, 2026. The public GitHub activity snapshot remains available independently.
+The projects directory includes Pausepin, UFC Prediction Model, Nostos, and tylerjamesdobson.com. Pausepin, Nostos, and the website link to their public source repositories. The UFC repository is private, so the site gives a high-level, research-stage description without a source link or prediction-performance claim. Project summaries were checked against the repositories on September 28, 2026. The public GitHub activity snapshot remains available independently.
 
 ## Files to maintain
 
