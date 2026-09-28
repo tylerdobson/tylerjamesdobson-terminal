@@ -1,4 +1,4 @@
-# Tyler James Dobson — Terminal Portfolio
+## tylerjamesdobson.com
 
 A static portfolio presented as an interactive command prompt. Visitors can explore Tyler’s projects, education, experience, technical skills, resume, contact links, and GitHub contribution calendar using typed commands or clickable links.
 
